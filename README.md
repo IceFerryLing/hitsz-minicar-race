@@ -83,7 +83,10 @@ flowchart TD
 为了从离散的12路传感器数据中获取连续的偏差值，系统采用了加权平均算法，并针对特殊路况进行了优化。
 
 - **加权计算**：给每个传感器分配权重 `weights = {11, 9, ..., -9, -11}`。
-- **偏差公式**：$Deviation = \frac{\sum (ActiveSensor_i \times Weight_i)}{\sum ActiveSensor_i}$
+- **偏差公式**：
+  $$
+  Deviation = \frac{\sum (ActiveSensor_i \times Weight_i)}{\sum ActiveSensor_i}
+  $$
 - **特殊路况处理**：
     - **丢线处理**：当所有传感器均未检测到线时，根据上一时刻的偏差值 `last_deviation` 锁定最大转向输出（±8.0），实现"记忆"功能，防止冲出赛道。
     - **急弯增强**：当检测到只有单侧传感器触发（如只有最左侧）而另一侧完全无信号时，人为增加偏差补偿（`deviation ± 1.5`），提高急弯响应速度。
