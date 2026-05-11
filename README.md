@@ -293,4 +293,4 @@ void Update_Gyro_Data(void)
 4.  **调试**: 连接串口 (波特率115200)，查看输出的 `GyroZ` 和 `PhotoDev` 数据波形。
 
 ---
-*Project maintained by HITSZ Mini-Car Team*
+*Project maintained by “组一辈子车队”*
